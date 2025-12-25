@@ -4,34 +4,44 @@
         <title>greetings</title>
         <link rel="stylesheet" href="main.css" />
     </head>
+    <script>
+        function goTo(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+            });
+        }
+        window.addEventListener("load", () => {
+            const middle = document.getElementById("home");
+            middle.scrollIntoView({
+                behavior: "auto",
+                inline: "center",
+                block: "nearest",
+            });
+        });
+    </script>
     <body>
         <div class="bg"></div>
+        <div class="container">
+            <div class="spacer"></div>
+            <div class="window" id="home"></div>
+            <div class="window" id="about"></div>
+            <div class="window" id="projects"></div>
+            <div class="window" id="blog"></div>
+            <div class="spacer"></div>
+        </div>
         <div class="dock">
             <div class="button">
-                <h1><a style="color: white; text-decoration: none">home</a></h1>
+                <h1 onclick="goTo('home')">home</h1>
             </div>
             <div class="button">
-                <h1>
-                    <a href="#about" style="color: white; text-decoration: none"
-                        >about</a
-                    >
-                </h1>
+                <h1 onclick="goTo('about')">about</h1>
             </div>
             <div class="button">
-                <h1>
-                    <a
-                        href="#projects"
-                        style="color: white; text-decoration: none"
-                        >projects</a
-                    >
-                </h1>
+                <h1 onclick="goTo('projects')">projects</h1>
             </div>
             <div class="button">
-                <h1>
-                    <a href="#blog" style="color: white; text-decoration: none"
-                        >blog</a
-                    >
-                </h1>
+                <h1 onclick="goTo('blog')">blog</h1>
             </div>
         </div>
     </body>

@@ -4,21 +4,51 @@
         <title>greetings</title>
         <link rel="stylesheet" href="main.css" />
     </head>
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
     <body>
         <div class="bg"></div>
         <div class="container">
             <div class="spacer"></div>
-            <div class="window" id="home">
-                <div class="content">
-                    <h1>/home/vi/</h1>
-                    <h2>
-                        welcome to my website! here you will find literally
-                        nothing of value
+            <div class="window row" id="home">
+                <div class="column">
+                    <div class="header">
+                        <h1 id="bash">
+                            <span class="prompt"> vi@StarDream:~$ </span>
+                            <span id="input"></span>
+                            <span class="cursor">_</span>
+                        </h1>
+                    </div>
+                    <div class="termout"></div>
+                </div>
+                <div class="rightMessage">
+                    <h2 class="message">welcome to my website!</h2>
+                    <h2 class="message">
+                        here you will find literally nothing of value
+                    </h2>
+                    <h2 class="message">anyway</h2>
+                    <h2 class="message">you can call me vi</h2>
+                    <h2 class="message">or indy but that doesnt rly matter</h2>
+                    <h2 class="message">
+                        i attempt to do coding, play guitar, and play bass
+                    </h2>
+                    <h2 class="message">
+                        (not doing particularly well at any of those)
+                    </h2>
+                    <h2 class="message">
+                        feel free to poke around my website!
                     </h2>
                 </div>
             </div>
-            <div class="window" id="about"></div>
+            <div class="window column" id="contact">
+                <div class="header">
+                    <h1>contact me over one of these platforms! :3</h1>
+                </div>
+                <div class="content">
+                    <h2 class="message">discord: roosterduck</h2>
+                    <h2 class="message">email: roosterduck@disroot.org</h2>
+                    <h2 class="message">github: ro0sterduck</h2>
+                </div>
+            </div>
             <div class="window" id="projects"></div>
             <div class="window" id="blog"></div>
             <div class="spacer"></div>
@@ -28,7 +58,7 @@
                 <h1 onclick="goTo('home')">home</h1>
             </div>
             <div class="button">
-                <h1 onclick="goTo('about')">about</h1>
+                <h1 onclick="goTo('contact')">contact</h1>
             </div>
             <div class="button">
                 <h1 onclick="goTo('projects')">projects</h1>

@@ -14,9 +14,8 @@ html {
     z-index: -1;
     background: url(./bg.jpg);
     background-size: cover;
-    background-position: center;
     will-change: transform;
-    transform: translate3d(0, 0, 0);
+    background-position: center;
 }
 .spacer {
     backdrop-filter: blur(15px);
@@ -25,7 +24,7 @@ html {
         rgba(128, 128, 128, 0.05)
     );
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    border-radius: 35px;
     top: 50%;
     left: 50%;
     min-width: 80%;
@@ -62,7 +61,7 @@ html {
         rgba(255, 255, 255, 0.05)
     );
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    border-radius: 35px;
     top: 50%;
     left: 50%;
     min-width: 80%;
@@ -70,25 +69,98 @@ html {
     scroll-snap-align: center;
     height: 85%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: top;
 }
 
-.content {
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.header {
     backdrop-filter: blur(15px);
     background: linear-gradient(
         rgba(255, 255, 255, 0.15),
         rgba(255, 255, 255, 0.05)
     );
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    border-radius: 25px;
+    position: relative;
+    padding: 20px;
+    margin: 15px;
+    flex: 1;
+    max-height: 10%;
+    display: flex;
+    align-items: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.rightMessage {
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
     position: relative;
     scroll-snap-align: center;
     display: flex;
     padding: 20px;
     flex-direction: column;
-    align-items: center;
-    margin: 50px;
+    align-items: left;
+    margin: 15px;
+    margin-left: auto;
+    line-height: 1;
+    gap: 20px;
+}
+
+.message {
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    position: relative;
+    scroll-snap-align: center;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: left;
+    margin: 0px;
+    line-height: 1;
+    margin-top: 20;
+    width: fit-content;
+}
+
+.output {
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    position: relative;
+    scroll-snap-align: center;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: left;
+    margin: 0px;
+    line-height: 1;
+    margin-top: 20;
+    width: fit-content;
+    animation: float 0.5s ease-in-out;
 }
 
 .dock {
@@ -98,7 +170,7 @@ html {
         rgba(255, 255, 255, 0.05)
     );
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
+    border-radius: 35px;
     position: absolute;
     top: 92.5%;
     left: 50%;
@@ -116,7 +188,7 @@ html {
         rgba(255, 255, 255, 0.05)
     );
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+    border-radius: 25px;
     cursor: pointer;
     transition: 0.5s;
     margin: 5px;
@@ -128,4 +200,77 @@ html {
 
 .button:hover {
     scale: 1.05;
+}
+
+.content {
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    position: relative;
+    scroll-snap-align: center;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: left;
+    margin: 15px;
+    margin-top: 0px;
+    line-height: 1;
+    gap: 20px;
+    flex: 1;
+}
+.termout {
+    backdrop-filter: blur(15px);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.05)
+    );
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    position: relative;
+    scroll-snap-align: center;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: left;
+    margin: 15px;
+    margin-top: 0px;
+    line-height: 1;
+    gap: 20px;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.home > .column {
+    flex: 1;
+}
+
+.cursor {
+    animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+@keyframes float {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

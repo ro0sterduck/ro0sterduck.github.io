@@ -7,6 +7,13 @@ html {
     color: #fff;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .bg {
     background: url(https://raw.githubusercontent.com/ro0sterduck/sixweb/refs/heads/main/bg.jpg);
     position: fixed;
@@ -15,7 +22,9 @@ html {
     background-size: cover;
     will-change: transform;
     background-position: center;
+    transform: scale(1.05);
 }
+
 .spacer {
     backdrop-filter: blur(15px);
     background: linear-gradient(
@@ -69,6 +78,7 @@ html {
     height: 85%;
     display: flex;
     align-items: top;
+    overflow: hidden;
 }
 
 .column {
@@ -117,28 +127,6 @@ html {
     align-items: center;
     padding-top: 0px;
     padding-bottom: 0px;
-    animation-name: hor-movement, ver-movement;
-    animation-duration: 3.141s, 1.414s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: linear;
-}
-@keyframes hor-movement {
-    from {
-        margin-left: 1%;
-    }
-    to {
-        margin-left: 87.5%;
-    }
-}
-
-@keyframes ver-movement {
-    from {
-        margin-top: 1%;
-    }
-    to {
-        margin-top: 40%;
-    }
 }
 
 .rightMessage {
@@ -159,6 +147,7 @@ html {
     margin-left: auto;
     line-height: 1;
     gap: 20px;
+    overflow: scroll;
 }
 .message {
     backdrop-filter: blur(15px);
@@ -311,4 +300,12 @@ html {
         opacity: 1;
         transform: translateY(0);
     }
+}
+.global {
+    z-index: 2;
+    position: absolute;
+    width: 2560px;
+    height: 1300px;
+    transform-origin: center center;
+    overflow: hidden;
 }

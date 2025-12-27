@@ -15,16 +15,24 @@ window.addEventListener("load", () => {
 
   const bg = document.querySelector(".bg");
   const container = document.querySelector(".container");
-
-  container.addEventListener("scroll", () => {
-    const x = container.scrollLeft;
-    bg.style.transform = `translate3d(${-x * 0.005}px, 0, 0) scale(1.05)`;
-  });
 });
 
 const inputSpan = document.getElementById("input");
 const output = document.querySelector(".termout");
 
+const bg = document.querySelector(".bg");
+
+let bghor = 0;
+
+function updateBG() {
+  bg.style.transform = `scale(1.05) translateX(${bghor}px)`;
+}
+window.addEventListener("scroll", () => {
+  bghor = -container.scrollLeft * 0.005;
+  updateBG();
+});
+
+updateBG();
 let buffer = "";
 
 window.addEventListener("keydown", (kbdpress) => {
@@ -121,3 +129,51 @@ function printLine(text) {
   output.appendChild(line);
   output.scrollTop = output.scrollHeight;
 }
+
+window.addEventListener("load", () => {
+  const blog = document.getElementById("blog");
+  const dvd = document.getElementById("dvd");
+
+  let x = 20;
+  let y = 20;
+  let dx = 1.5;
+  let dy = 1.5;
+
+  function bounds() {
+    return {
+      maxX: blog.clientWidth - dvd.offsetWidth,
+      maxY: blog.clientHeight - dvd.offsetHeight,
+    };
+  }
+
+  let b = bounds();
+
+  window.addEventListener("resize", () => {
+    b = bounds();
+  });
+
+  function animate() {
+    x += dx;
+    y += dy;
+
+    if (x <= 0 || x >= b.maxX) dx *= -1;
+    if (y <= 0 || y >= b.maxY) dy *= -1;
+
+    x = Math.max(0, Math.min(x, b.maxX));
+    y = Math.max(0, Math.min(y, b.maxY));
+
+    dvd.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+function scaleApp() {
+  const app = document.getElementById("global");
+  const scale = Math.min(window.innerWidth / 2560, window.innerHeight / 1300);
+
+  app.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("resize", scaleApp);
+window.addEventListener("load", scaleApp);

@@ -194,7 +194,7 @@ function parallax(id) {
   bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;
 }
 function parallaxStart(id) {
-  let offsetX = 30;
+  let offsetX = 15;
   let offsetY = 0;
   bg.style.transition = "transform";
   bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;

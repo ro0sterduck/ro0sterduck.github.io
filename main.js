@@ -155,10 +155,12 @@ window.addEventListener("load", () => {
   animate();
 });
 function scaleApp() {
-  const app = document.getElementById("global");
-  const scale = Math.min(window.innerWidth / 2560, window.innerHeight / 1300);
+  if (window.innerWidth >= 768) {
+    const app = document.getElementById("global");
+    const scale = Math.min(window.innerWidth / 2560, window.innerHeight / 1300);
 
-  app.style.transform = `scale(${scale})`;
+    app.style.transform = `scale(${scale})`;
+  }
 }
 
 window.addEventListener("resize", scaleApp);
@@ -171,7 +173,7 @@ function parallax(id) {
   let offsetY = 0;
   switch (id) {
     case "home":
-      offsetX = 30;
+      offsetX = 15;
       offsetY = 0;
       break;
     case "contact":
@@ -179,21 +181,21 @@ function parallax(id) {
       offsetY = 0;
       break;
     case "projects":
-      offsetX = -30;
+      offsetX = -15;
       offsetY = 0;
       break;
     case "blog":
-      offsetX = -60;
+      offsetX = -30;
       offsetY = 0;
       break;
   }
 
   bg.style.transition = "transform 0.5s ease";
-  bg.style.transform = `scale(1.05) translate(${offsetX}px, ${offsetY}px)`;
+  bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;
 }
 function parallaxStart(id) {
   let offsetX = 30;
   let offsetY = 0;
   bg.style.transition = "transform";
-  bg.style.transform = `scale(1.05) translate(${offsetX}px, ${offsetY}px)`;
+  bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;
 }

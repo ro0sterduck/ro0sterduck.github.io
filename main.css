@@ -25,9 +25,6 @@ html {
         align-items: center;
         overflow: hidden;
     }
-    .footer {
-        display: none;
-    }
     .spacer {
         backdrop-filter: blur(15px);
         background: linear-gradient(
@@ -311,6 +308,9 @@ html {
         height: 1300px;
         transform-origin: center center;
         overflow: hidden;
+    }
+    .footer {
+        display: none;
     }
 }
 

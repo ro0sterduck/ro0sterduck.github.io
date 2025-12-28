@@ -6,16 +6,6 @@ function goTo(id) {
   parallax(id);
 }
 
-window.addEventListener("load", () => {
-  const middle = document.getElementById("home");
-  middle.scrollIntoView({
-    behavior: "auto",
-    inline: "center",
-    block: "nearest",
-  });
-  parallaxStart();
-});
-
 const inputSpan = document.getElementById("input");
 const output = document.querySelector(".termout");
 
@@ -119,6 +109,12 @@ function printLine(text) {
 window.addEventListener("load", () => {
   const blog = document.getElementById("blog");
   const dvd = document.getElementById("dvd");
+  const middle = document.getElementById("home");
+  middle.scrollIntoView({
+    behavior: "auto",
+    inline: "center",
+    block: "nearest",
+  });
 
   let x = 20;
   let y = 20;
@@ -151,7 +147,7 @@ window.addEventListener("load", () => {
     dvd.style.transform = `translate(${x}px, ${y}px)`;
     requestAnimationFrame(animate);
   }
-
+  parallaxStart();
   animate();
 });
 function scaleApp() {

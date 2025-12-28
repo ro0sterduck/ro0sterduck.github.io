@@ -93,6 +93,27 @@ function runCommand(cmd) {
     case "cat":
       printLine("nah");
       break;
+    case "rm":
+      printLine("nah");
+      break;
+    case "mv":
+      printLine("nah");
+      break;
+    case "cp":
+      printLine("nah");
+      break;
+    case "mkdir":
+      printLine("nah");
+      break;
+    case "touch":
+      printLine("nah");
+      break;
+    case "pwd":
+      printLine("/home/vi");
+      break;
+    case "whoami":
+      printLine("vi (probably not tho)");
+      break;
     default:
       printLine(`command not found: ${command}`);
   }

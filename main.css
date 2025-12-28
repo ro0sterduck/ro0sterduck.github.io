@@ -81,9 +81,13 @@ html {
         flex-direction: row;
         align-items: center;
         overflow: scroll;
+        scrollbar-width: none;
     }
     .container > * {
         flex: 1;
+    }
+    .container::-webkit-scrollbar {
+        display: none;
     }
     .window {
         backdrop-filter: blur(15px);

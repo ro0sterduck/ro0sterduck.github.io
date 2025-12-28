@@ -3,7 +3,6 @@ function goTo(id) {
     behavior: "smooth",
     inline: "center",
   });
-  parallax(id);
 }
 
 const inputSpan = document.getElementById("input");
@@ -183,36 +182,19 @@ function scaleApp() {
 window.addEventListener("resize", scaleApp);
 window.addEventListener("load", scaleApp);
 
-const bg = document.querySelector(".bg");
+const bg = document.getElementById("bg");
+const container = document.getElementById("container");
 
-function parallax(id) {
-  let offsetX = 0;
-  let offsetY = 0;
-  switch (id) {
-    case "home":
-      offsetX = 15;
-      offsetY = 0;
-      break;
-    case "contact":
-      offsetX = 0;
-      offsetY = 0;
-      break;
-    case "projects":
-      offsetX = -15;
-      offsetY = 0;
-      break;
-    case "blog":
-      offsetX = -30;
-      offsetY = 0;
-      break;
+let limiter = false;
+
+container.addEventListener("scroll", () => {
+  if (!limiter) {
+    requestAnimationFrame(() => {
+      const scrollX = container.scrollLeft;
+      const speed = 0.0025;
+      bg.style.transform = `scale(${1.25}) translateX(${-scrollX * speed + 10}px)`;
+      limiter = false;
+    });
+    limiter = true;
   }
-
-  bg.style.transition = "transform 0.5s ease";
-  bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;
-}
-function parallaxStart(id) {
-  let offsetX = 15;
-  let offsetY = 0;
-  bg.style.transition = "transform";
-  bg.style.transform = `scale(1.25) translate(${offsetX}px, ${offsetY}px)`;
-}
+});

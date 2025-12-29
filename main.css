@@ -131,6 +131,24 @@ html {
         position: relative;
         padding: 20px;
         margin: 15px;
+        flex: 1;
+        max-height: 10%;
+        display: flex;
+        align-items: center;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .headerdown {
+        backdrop-filter: blur(15px);
+        background: linear-gradient(
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.05)
+        );
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+        position: relative;
+        padding: 20px;
+        margin: 15px;
         margin-top: 0px;
         flex: 1;
         max-height: 10%;

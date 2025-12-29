@@ -167,7 +167,7 @@ window.addEventListener("load", () => {
     dvd.style.transform = `translate(${x}px, ${y}px)`;
     requestAnimationFrame(animate);
   }
-  parallaxStart();
+
   animate();
 });
 function scaleApp() {
@@ -198,3 +198,35 @@ container.addEventListener("scroll", () => {
     limiter = true;
   }
 });
+
+let velocity = 0;
+let isScrolling = false;
+const friction = 0.65;
+
+function animateScroll() {
+  if (Math.abs(velocity) < 0.1) {
+    velocity = 0;
+    isScrolling = false;
+    return;
+  }
+
+  container.scrollLeft += velocity;
+  velocity *= friction;
+
+  requestAnimationFrame(animateScroll);
+}
+
+window.addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault();
+
+    velocity += e.deltaY * 0.8;
+
+    if (!isScrolling) {
+      isScrolling = true;
+      requestAnimationFrame(animateScroll);
+    }
+  },
+  { passive: false },
+);
